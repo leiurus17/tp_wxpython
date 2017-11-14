@@ -44,6 +44,18 @@ class MyFrame ( wx.Frame ):
         
         self.SetMenuBar( self.m_menubar1 )
         
+        self.m_panel = wx.Panel( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, wx.TAB_TRAVERSAL )
+        self.m_mgr.AddPane( self.m_panel, wx.aui.AuiPaneInfo() .Left() .PinButton( True ).Hide().Float().FloatingPosition( wx.Point( 471,358 ) ).Resizable().FloatingSize( wx.Size( 214,121 ) ) )
+        
+        bSizer2 = wx.BoxSizer( wx.VERTICAL )
+        
+        self.m_button3 = wx.Button( self.m_panel, wx.ID_ANY, u"MyButton", wx.DefaultPosition, wx.DefaultSize, 0 )
+        bSizer2.Add( self.m_button3, 0, wx.ALL, 5 )
+        
+        
+        self.m_panel.SetSizer( bSizer2 )
+        self.m_panel.Layout()
+        bSizer2.Fit( self.m_panel )
         
         self.m_mgr.Update()
         self.Centre( wx.BOTH )
